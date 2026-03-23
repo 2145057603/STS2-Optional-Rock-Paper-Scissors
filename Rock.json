@@ -1,0 +1,11 @@
+{
+  "id": "Rock",
+  "name": "Rock",
+  "author": "Codex",
+  "description": "Manual rock-paper-scissors framework for shared relic picks",
+  "version": "v0.1.0",
+  "has_pck": true,
+  "has_dll": true,
+  "dependencies": [],
+  "affects_gameplay": true
+}

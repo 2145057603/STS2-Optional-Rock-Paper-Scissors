@@ -1,0 +1,7 @@
+{
+  "pck_name": "Rock",
+  "name": "Rock",
+  "author": "Codex",
+  "description": "Manual rock-paper-scissors framework for shared relic picks",
+  "version": "1.0.0"
+}

@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Rock</RootNamespace>
+    <AssemblyName>Rock</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GodotSharp" Version="4.5.1" />
+    <PackageReference Include="Lib.Harmony" Version="2.4.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="sts2">
+	  <!-- Change this if Slay the Spire 2 is installed in a different library -->
+      <HintPath>E:\我的\Slay the Spire 2\Slay.the.Spire.2.Build.22340209\Slay.the.Spire.2.Build.22340209\data_sts2_windows_x86_64\sts2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Ui\ManualRpsOverlay.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rock.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Rock-godot\Rock.pck">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Ui\Assets\RpsIcons\*.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(SkipRockDeploy)' != 'true'">
+    <Exec Command="if not exist &quot;E:\我的\Slay the Spire 2\Slay.the.Spire.2.Build.22340209\Slay.the.Spire.2.Build.22340209\mods\Rock&quot; mkdir &quot;E:\我的\Slay the Spire 2\Slay.the.Spire.2.Build.22340209\Slay.the.Spire.2.Build.22340209\mods\Rock&quot;" />
+    <Exec Command="xcopy &quot;$(TargetDir)Rock.dll&quot; &quot;E:\我的\Slay the Spire 2\Slay.the.Spire.2.Build.22340209\Slay.the.Spire.2.Build.22340209\mods\Rock\&quot; /Y" />
+    <Exec Command="xcopy &quot;$(TargetDir)Rock.json&quot; &quot;E:\我的\Slay the Spire 2\Slay.the.Spire.2.Build.22340209\Slay.the.Spire.2.Build.22340209\mods\Rock\&quot; /Y" />
+    <Exec Command="xcopy &quot;$(TargetDir)Rock-godot\Rock.pck&quot; &quot;E:\我的\Slay the Spire 2\Slay.the.Spire.2.Build.22340209\Slay.the.Spire.2.Build.22340209\mods\Rock\&quot; /Y" />
+    <Exec Command="if not exist &quot;E:\我的\Slay the Spire 2\Slay.the.Spire.2.Build.22340209\Slay.the.Spire.2.Build.22340209\mods\Rock\Ui\Assets\RpsIcons&quot; mkdir &quot;E:\我的\Slay the Spire 2\Slay.the.Spire.2.Build.22340209\Slay.the.Spire.2.Build.22340209\mods\Rock\Ui\Assets\RpsIcons&quot;" />
+    <Exec Command="xcopy &quot;$(TargetDir)Ui\Assets\RpsIcons\*.png&quot; &quot;E:\我的\Slay the Spire 2\Slay.the.Spire.2.Build.22340209\Slay.the.Spire.2.Build.22340209\mods\Rock\Ui\Assets\RpsIcons\&quot; /Y" />
+  </Target>
+</Project>
