@@ -4,6 +4,10 @@
 
 当多名玩家选择同一个遗物时，原版通常会进入自动判定流程。这个模组会拦截该流程，改为由玩家手动进行石头、剪刀、布决定归属，并在界面上展示当前选择状态与回合历史。
 
+如有bug可以直接进群提出
+<img width="354" height="35" alt="image" src="https://github.com/user-attachments/assets/35f3fef3-a621-44a1-a4ec-0e4c6d0e1d3c" />
+
+
 ## 功能
 
 - 拦截共享遗物选择中的自动冲突结算
